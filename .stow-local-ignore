@@ -1,0 +1,6 @@
+# GNU Stow ignore list — patterns are regexes anchored per package root.
+# Keeps repo-meta files from being symlinked into $HOME when stowing.
+\.git
+\.gitignore
+\.stow-local-ignore
+README.md

@@ -1,0 +1,29 @@
+# ─── Credential-exclusion rules (SETUP-03) ───────────────────────────────
+# This dotfiles repo mirrors config from $HOME and may later be pushed to a
+# git remote. Nothing secret may ever be staged. These patterns keep auth
+# tokens, SSH material, and environment files out of the tree BEFORE any file
+# is copied in. Do NOT paste real token values anywhere in this repo.
+# ─────────────────────────────────────────────────────────────────────────
+
+# GitHub CLI auth + host config (gh stores the OAuth token in hosts.yml)
+gh/
+**/hosts.yml
+
+# SSH keys and material
+.ssh/
+id_*
+*.pem
+*.key
+
+# Tokens / credentials of any shape
+*.token
+*_token
+*.secret
+*credentials*
+
+# Environment files (may carry exported secrets)
+.env
+.env.*
+
+# macOS filesystem cruft
+.DS_Store
