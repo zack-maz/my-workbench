@@ -1,0 +1,28 @@
+# Ghostty config — Phase 2 (agentic dev workbench)
+# All options validated against Ghostty 1.3.1. Stow-owned: real file in ~/dotfiles.
+
+# --- Font (TERM-01, TERM-04) ---
+font-family = "JetBrainsMono Nerd Font"
+font-size = 14
+# Ligatures are ON by default (D-02). To disable, uncomment:
+# font-feature = -calt
+# font-feature = -liga
+# font-feature = -dlig
+# Fallback if glyphs clip/oversize (D-03): use the single-cell Mono family instead:
+# font-family = "JetBrainsMono Nerd Font Mono"
+
+# --- Theme (TERM-02) — Catppuccin Macchiato flavor ---
+# NOTE: Ghostty 1.3.1 resolves the built-in theme by its EXACT +list-themes name
+# ("Catppuccin Macchiato"); the lowercase-hyphenated form fails +validate-config.
+theme = Catppuccin Macchiato
+
+# --- Alt keys + clipboard (TERM-03) ---
+macos-option-as-alt = true
+clipboard-write = allow
+
+# --- Comfort baseline (D-07) — no opacity/blur/background gimmicks ---
+cursor-style = block
+cursor-style-blink = true
+window-padding-x = 10
+window-padding-y = 8
+mouse-hide-while-typing = true
