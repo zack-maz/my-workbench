@@ -1,0 +1,29 @@
+# herdr configuration — Stow-owned (real file in ~/dotfiles/herdr).
+# Agent multiplexer that replaces tmux. Managed like the rest of the dotfiles.
+# Validate after edits:  herdr config check
+# Apply to a running server:  herdr server reload-config   (or prefix+shift+r)
+
+[theme]
+# Match Ghostty's Catppuccin Macchiato flavor.
+name = "catppuccin"
+
+[keys]
+# Caps Lock is remapped to F18 by Karabiner-Elements (see ~/dotfiles/karabiner),
+# so the physical Caps Lock key IS the herdr prefix. Tap Caps, then a key.
+#   Caps v      -> split vertical
+#   Caps -      -> split horizontal
+#   Caps h/j/k/l-> focus pane
+#   Caps c      -> new tab      Caps n/p -> next/prev tab   Caps 1..9 -> switch tab
+#   Caps z      -> zoom pane    Caps x -> close pane        Caps b -> toggle sidebar
+#   Caps w      -> workspace picker    Caps q -> detach
+#   Caps ?      -> help         Caps shift+r -> reload config
+prefix = "f18"
+
+# All action bindings inherit herdr defaults (prefix-relative), so upgrades keep working.
+# Add custom popups here if wanted, e.g. lazygit:
+# [[keys.command]]
+# key = "prefix+g"
+# type = "popup"
+# command = "lazygit"
+# width = "90%"
+# height = "90%"

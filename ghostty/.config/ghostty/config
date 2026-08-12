@@ -16,6 +16,12 @@ font-size = 14
 # ("Catppuccin Macchiato"); the lowercase-hyphenated form fails +validate-config.
 theme = Catppuccin Macchiato
 
+# --- Auto-launch herdr (agent multiplexer, replaces tmux) ---
+# Every new Ghostty window drops straight into the persistent herdr session.
+# herdr with no args launches-or-attaches, so panes/agents survive window close.
+# Caps Lock (remapped to F18 by Karabiner) passes through untouched as the herdr prefix.
+command = /opt/homebrew/bin/herdr
+
 # --- Alt keys + clipboard (TERM-03) ---
 macos-option-as-alt = true
 clipboard-write = allow
