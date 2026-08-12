@@ -45,7 +45,7 @@ alias v='nvim'
 BREW_SHARE="$(brew --prefix 2>/dev/null)/share"
 [ -f "$BREW_SHARE/zsh-autosuggestions/zsh-autosuggestions.zsh" ] \
   && source "$BREW_SHARE/zsh-autosuggestions/zsh-autosuggestions.zsh"
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#6e738d'   # Catppuccin overlay0, subtle
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#4a4a4a'   # Vesper dim gray, subtle
 
 # ── Prompt: starship (Catppuccin Macchiato config in ~/.config/starship.toml) ─
 eval "$(starship init zsh)"

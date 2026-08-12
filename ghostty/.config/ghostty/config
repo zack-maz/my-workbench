@@ -11,10 +11,9 @@ font-size = 14
 # Fallback if glyphs clip/oversize (D-03): use the single-cell Mono family instead:
 # font-family = "JetBrainsMono Nerd Font Mono"
 
-# --- Theme (TERM-02) — Catppuccin Macchiato flavor ---
-# NOTE: Ghostty 1.3.1 resolves the built-in theme by its EXACT +list-themes name
-# ("Catppuccin Macchiato"); the lowercase-hyphenated form fails +validate-config.
-theme = Catppuccin Macchiato
+# --- Theme (TERM-02) — Vesper (near-black #101010, warm minimal accents) ---
+# NOTE: Ghostty resolves the built-in theme by its EXACT +list-themes name.
+theme = Vesper
 
 # --- Auto-launch herdr (agent multiplexer, replaces tmux) ---
 # Every new Ghostty window drops straight into the persistent herdr session.

@@ -1,26 +1,24 @@
--- Catppuccin Macchiato for LazyVim — matches Ghostty, herdr, and the shell prompt.
+-- Vesper for LazyVim — near-black background, warm minimal accents.
+-- Matches Ghostty (theme = Vesper), herdr (theme = vesper), and the shell prompt.
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "datsfilipe/vesper.nvim",
     priority = 1000,
     opts = {
-      flavour = "macchiato",
-      integrations = {
-        cmp = true,
-        gitsigns = true,
-        treesitter = true,
-        telescope = true,
-        which_key = true,
-        mini = { enabled = true },
-        native_lsp = { enabled = true },
+      transparent = false,
+      italics = {
+        comments = true,
+        keywords = true,
+        functions = false,
+        strings = false,
+        variables = false,
       },
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "vesper",
     },
   },
 }
