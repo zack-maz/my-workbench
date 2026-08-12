@@ -1,0 +1,17 @@
+2026-08-12T02:27:45.351452Z  INFO herdr::platform::macos: raised server file descriptor soft limit previous=256 target=8192
+2026-08-12T02:27:45.353037Z  INFO herdr::api::server: api server listening path=/Users/zackmaz/.config/herdr/herdr.sock
+2026-08-12T02:27:45.354701Z  INFO herdr::app: using pane scrollback configuration pane_scrollback_limit_bytes=10000000
+2026-08-12T02:27:45.382604Z  INFO herdr::logging: checking for updates event="update.check.start" subsystem="update" outcome="started"
+2026-08-12T02:27:45.411014Z  INFO herdr::logging: spawning pane terminal event="pane.spawn.start" subsystem="pane" outcome="started" pane_id=1 rows=24 cols=80 scrollback_limit_bytes=10000000
+2026-08-12T02:27:45.416229Z  INFO herdr::logging: pane child spawned event="pane.spawned" subsystem="pane" outcome="ok" pane_id=1 pid=28719
+2026-08-12T02:27:45.417680Z  INFO herdr::logging: workspace created event="workspace.create" subsystem="workspace" outcome="ok" workspace_id="w1" pane_id=1
+2026-08-12T02:27:45.417699Z  INFO herdr::logging: workspace focused event="workspace.focus" subsystem="workspace" outcome="ok" workspace_id="w1"
+2026-08-12T02:27:45.418021Z  INFO herdr::logging: tab focused event="tab.focus" subsystem="tab" outcome="ok" workspace_id="w1" tab_id="w1:t1"
+2026-08-12T02:27:45.418310Z  INFO herdr::server::headless: created startup workspace cwd=/Users/zackmaz
+2026-08-12T02:27:45.418652Z  INFO herdr::server::headless: client protocol socket listening path=/Users/zackmaz/.config/herdr/herdr-client.sock
+2026-08-12T02:27:45.418796Z  INFO herdr::server::headless: herdr server started api_socket=/Users/zackmaz/.config/herdr/herdr.sock client_socket=/Users/zackmaz/.config/herdr/herdr-client.sock
+2026-08-12T02:27:45.420229Z  INFO herdr::logging: herdr starting event="app.startup" subsystem="server" outcome="started" pid=28714
+2026-08-12T02:27:45.484473Z  INFO herdr::server::headless: client connected client_id=2 cols=91 rows=31 cell_width_px=0 cell_height_px=0 render_encoding=SemanticFrame
+2026-08-12T02:27:45.589225Z  INFO herdr::server::headless: client resize client_id=2 cols=120 rows=31 cell_width_px=0 cell_height_px=0
+2026-08-12T02:27:50.426492Z  INFO herdr::logging: session saved event="persist.save" subsystem="persist" outcome="ok" path=/Users/zackmaz/.config/herdr/session.json workspaces=1
+2026-08-12T02:27:52.037189Z  INFO herdr::app::actions: copied selection to clipboard
