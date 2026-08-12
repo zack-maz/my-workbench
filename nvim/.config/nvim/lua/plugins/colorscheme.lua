@@ -1,24 +1,22 @@
--- Vesper for LazyVim — near-black background, warm minimal accents.
--- Matches Ghostty (theme = Vesper), herdr (theme = vesper), and the shell prompt.
+-- TokyoNight Storm for LazyVim — vibrant, matches Ghostty/herdr/prompt.
+-- tokyonight.nvim ships with LazyVim, so no extra plugin download is needed.
 return {
   {
-    "datsfilipe/vesper.nvim",
+    "folke/tokyonight.nvim",
     priority = 1000,
     opts = {
+      style = "storm",
       transparent = false,
-      italics = {
-        comments = true,
-        keywords = true,
-        functions = false,
-        strings = false,
-        variables = false,
+      styles = {
+        comments = { italic = true },
+        keywords = { italic = true },
       },
     },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "vesper",
+      colorscheme = "tokyonight-storm",
     },
   },
 }

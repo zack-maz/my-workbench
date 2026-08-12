@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# Vesper prompt (near-black + warm accents) — matches Ghostty + herdr + LazyVim.
+# TokyoNight Storm prompt (vibrant) — matches Ghostty + herdr + LazyVim.
 # Stow-owned: real file in ~/dotfiles/starship. Needs a Nerd Font (Ghostty uses
 # JetBrainsMono Nerd Font, so the glyphs below render).
 
@@ -24,7 +24,7 @@ $time\
 $line_break\
 $character"""
 
-palette = "vesper"
+palette = "tokyonight_storm"
 
 [fill]
 symbol = " "
@@ -113,20 +113,20 @@ success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](mauve)"
 
-# ── Vesper palette (black background, warm minimal accents) ──────────────────
-# Islands step up from near-black; accents pulled from Ghostty's Vesper theme.
-[palettes.vesper]
-text     = "#ffffff"
-mauve    = "#ffc799"   # amber — Vesper's signature accent (git branch)
-red      = "#ff8080"   # git status
-peach    = "#ffc799"   # rust
-yellow   = "#e6b99d"   # node
-green    = "#99ffe4"   # mint (python)
-teal     = "#90b99f"   # go / package
-sky      = "#a0a0a0"   # golang label
-overlay1 = "#7e7e7e"   # duration + clock
-overlay0 = "#4a4a4a"   # autosuggest / dim
-surface0 = "#1c1c1c"   # island 1 (dir)
-surface1 = "#262626"   # island 2 (git)
-surface2 = "#303030"   # island 3 (langs)
-base     = "#101010"   # true background
+# ── TokyoNight Storm palette (vibrant) ───────────────────────────────────────
+# Islands step up from the storm background; accents from Ghostty's TokyoNight Storm.
+[palettes.tokyonight_storm]
+text     = "#c0caf5"
+mauve    = "#bb9af7"   # purple (git branch)
+red      = "#f7768e"   # git status
+peach    = "#ff9e64"   # orange (rust)
+yellow   = "#e0af68"   # node
+green    = "#9ece6a"   # python
+teal     = "#73daca"   # go / package
+sky      = "#7aa2f7"   # blue (golang label)
+overlay1 = "#565f89"   # duration + clock
+overlay0 = "#414868"   # autosuggest / dim
+surface0 = "#2a2e42"   # island 1 (dir)
+surface1 = "#343a54"   # island 2 (git)
+surface2 = "#3b4261"   # island 3 (langs)
+base     = "#24283b"   # true background

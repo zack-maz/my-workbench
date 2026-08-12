@@ -11,23 +11,38 @@ font-size = 14
 # Fallback if glyphs clip/oversize (D-03): use the single-cell Mono family instead:
 # font-family = "JetBrainsMono Nerd Font Mono"
 
-# --- Theme (TERM-02) — Vesper (near-black #101010, warm minimal accents) ---
+# --- Theme (TERM-02) — TokyoNight Storm (vibrant blues/purples/teals) ---
 # NOTE: Ghostty resolves the built-in theme by its EXACT +list-themes name.
-theme = Vesper
+theme = TokyoNight Storm
 
 # --- Auto-launch herdr (agent multiplexer, replaces tmux) ---
 # Every new Ghostty window drops straight into the persistent herdr session.
 # herdr with no args launches-or-attaches, so panes/agents survive window close.
-# Caps Lock (remapped to F18 by Karabiner) passes through untouched as the herdr prefix.
+# Caps Lock (remapped to F18 via hidutil login agent) passes through as the herdr prefix.
 command = /opt/homebrew/bin/herdr
 
 # --- Alt keys + clipboard (TERM-03) ---
 macos-option-as-alt = true
 clipboard-write = allow
 
-# --- Comfort baseline (D-07) — no opacity/blur/background gimmicks ---
+# --- Styler: pimped-out look ---
+# Translucent, blurred background (macOS vibrancy) — TokyoNight colors glow through.
+background-opacity = 0.92
+background-blur-radius = 24
+# Wide-gamut P3 makes the TokyoNight palette noticeably more vivid on modern displays.
+window-colorspace = display-p3
+# Brighten bold text to the bright ANSI variant — more color pop in the shell/TUIs.
+bold-is-bright = true
+# Crisper glyphs on Retina.
+font-thicken = true
+# Dim inactive Ghostty splits (herdr manages its own panes, so this is mostly cosmetic).
+unfocused-split-opacity = 0.85
+
+# --- Cursor + window chrome ---
 cursor-style = block
 cursor-style-blink = true
-window-padding-x = 10
-window-padding-y = 8
+macos-titlebar-style = tabs
+window-padding-x = 12
+window-padding-y = 10
+window-padding-balance = true
 mouse-hide-while-typing = true
