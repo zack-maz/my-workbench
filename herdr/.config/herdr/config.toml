@@ -4,8 +4,8 @@
 # Apply to a running server:  herdr server reload-config   (or prefix+shift+r)
 
 [theme]
-# Match Ghostty's TokyoNight Storm — vibrant blues/purples/teals.
-name = "tokyo-night"
+# Near-black to match Ghostty's black background; agent colors still pop.
+name = "vesper"
 
 [keys]
 # Caps Lock is remapped to F18 by Karabiner-Elements (see ~/dotfiles/karabiner),

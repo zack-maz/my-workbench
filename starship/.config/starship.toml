@@ -1,6 +1,6 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
-# TokyoNight Storm prompt (vibrant) — matches Ghostty + herdr + LazyVim.
+# Black prompt, vibrant text — matches the black Ghostty background.
 # Stow-owned: real file in ~/dotfiles/starship. Needs a Nerd Font (Ghostty uses
 # JetBrainsMono Nerd Font, so the glyphs below render).
 
@@ -113,10 +113,11 @@ success_symbol = "[❯](green)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](mauve)"
 
-# ── TokyoNight Storm palette (vibrant) ───────────────────────────────────────
-# Islands step up from the storm background; accents from Ghostty's TokyoNight Storm.
+# ── Black prompt, vibrant text ───────────────────────────────────────────────
+# Island backgrounds are near-black grays (so the prompt reads BLACK, not purple);
+# the text colors stay vivid TokyoNight so branch/venv/versions pop.
 [palettes.tokyonight_storm]
-text     = "#c0caf5"
+text     = "#c8d3f5"
 mauve    = "#bb9af7"   # purple (git branch)
 red      = "#f7768e"   # git status
 peach    = "#ff9e64"   # orange (rust)
@@ -124,9 +125,9 @@ yellow   = "#e0af68"   # node
 green    = "#9ece6a"   # python
 teal     = "#73daca"   # go / package
 sky      = "#7aa2f7"   # blue (golang label)
-overlay1 = "#565f89"   # duration + clock
+overlay1 = "#7a88b8"   # duration + clock (brighter on black)
 overlay0 = "#414868"   # autosuggest / dim
-surface0 = "#2a2e42"   # island 1 (dir)
-surface1 = "#343a54"   # island 2 (git)
-surface2 = "#3b4261"   # island 3 (langs)
-base     = "#24283b"   # true background
+surface0 = "#141414"   # island 1 (dir)   — near-black
+surface1 = "#1c1c1c"   # island 2 (git)
+surface2 = "#242424"   # island 3 (langs)
+base     = "#0a0a0a"   # true background

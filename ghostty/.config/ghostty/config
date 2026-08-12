@@ -11,9 +11,14 @@ font-size = 14
 # Fallback if glyphs clip/oversize (D-03): use the single-cell Mono family instead:
 # font-family = "JetBrainsMono Nerd Font Mono"
 
-# --- Theme (TERM-02) — TokyoNight Storm (vibrant blues/purples/teals) ---
-# NOTE: Ghostty resolves the built-in theme by its EXACT +list-themes name.
-theme = TokyoNight Storm
+# --- Theme (TERM-02) — black background, vibrant ANSI text ---
+# TokyoNight supplies the vivid 16-color palette (so `ls`, bat, and syntax pop),
+# then we override the background to near-black — dark, not purple.
+theme = TokyoNight Night
+background = #0a0a0a
+foreground = #c8d3f5
+# Slightly brighten the selection so it reads on pure black.
+selection-background = #2d3f76
 
 # --- Auto-launch herdr (agent multiplexer, replaces tmux) ---
 # Every new Ghostty window drops straight into the persistent herdr session.
