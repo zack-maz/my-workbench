@@ -8,7 +8,7 @@
 name = "vesper"
 
 [keys]
-# Caps Lock is remapped to F18 by Karabiner-Elements (see ~/dotfiles/karabiner),
+# Caps Lock is remapped to F18 via a hidutil login agent (see ~/dotfiles/keymap),
 # so the physical Caps Lock key IS the herdr prefix. Tap Caps, then a key.
 #   Caps v      -> split vertical
 #   Caps -      -> split horizontal
@@ -19,11 +19,53 @@ name = "vesper"
 #   Caps ?      -> help         Caps shift+r -> reload config
 prefix = "f18"
 
-# All action bindings inherit herdr defaults (prefix-relative), so upgrades keep working.
-# Add custom popups here if wanted, e.g. lazygit:
-# [[keys.command]]
-# key = "prefix+g"
-# type = "popup"
-# command = "lazygit"
-# width = "90%"
-# height = "90%"
+# lazygit in a floating popup: Caps g
+[[keys.command]]
+key = "prefix+g"
+type = "popup"
+command = "lazygit"
+width = "90%"
+height = "90%"
+
+# ── herdr-splits: seamless Ctrl-hjkl nav / Alt-hjkl resize across herdr <-> nvim ──
+# Requires: herdr plugin install lmilojevicc/herdr-splits.nvim --yes
+# and the matching herdr-splits.nvim spec in nvim (loads when HERDR_ENV=1).
+[[keys.command]]
+key = "ctrl+h"
+type = "plugin_action"
+command = "herdr-splits.nav-left"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "plugin_action"
+command = "herdr-splits.nav-down"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "plugin_action"
+command = "herdr-splits.nav-up"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "plugin_action"
+command = "herdr-splits.nav-right"
+
+[[keys.command]]
+key = "alt+h"
+type = "plugin_action"
+command = "herdr-splits.resize-left"
+
+[[keys.command]]
+key = "alt+j"
+type = "plugin_action"
+command = "herdr-splits.resize-down"
+
+[[keys.command]]
+key = "alt+k"
+type = "plugin_action"
+command = "herdr-splits.resize-up"
+
+[[keys.command]]
+key = "alt+l"
+type = "plugin_action"
+command = "herdr-splits.resize-right"
