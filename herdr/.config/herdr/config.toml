@@ -1,3 +1,4 @@
+onboarding = false
 # herdr configuration — Stow-owned (real file in ~/dotfiles/herdr).
 # Agent multiplexer that replaces tmux. Managed like the rest of the dotfiles.
 # Validate after edits:  herdr config check
@@ -69,3 +70,6 @@ command = "herdr-splits.resize-up"
 key = "alt+l"
 type = "plugin_action"
 command = "herdr-splits.resize-right"
+
+[ui]
+agent_panel_sort = "priority"

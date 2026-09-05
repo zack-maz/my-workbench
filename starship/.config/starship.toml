@@ -37,11 +37,17 @@ style = "bg:surface0 fg:text"
 Macos = "󰀵 "
 
 [directory]
-style = "fg:text bg:surface0"
+style = "fg:sky bg:surface0"
 format = "[ $path ]($style)"
+# Inside a git repo the path is colored in three tiers so the repo name pops:
+# dim gray ancestors → mauve repo root (matches the branch island) → blue subpath.
+before_repo_root_style = "fg:overlay0 bg:surface0"
+repo_root_style = "bold fg:mauve bg:surface0"
+repo_root_format = "[ $before_root_path]($before_repo_root_style)[$repo_root]($repo_root_style)[$path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
 read_only = " 󰌾"
+read_only_style = "fg:red bg:surface0"
 [directory.substitutions]
 "Documents" = "󰈙 "
 "Downloads" = " "
