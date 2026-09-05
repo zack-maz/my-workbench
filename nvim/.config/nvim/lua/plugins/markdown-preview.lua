@@ -13,6 +13,10 @@ return {
       vim.g.mkdp_port = ""
       vim.g.mkdp_auto_close = 0
       vim.g.mkdp_open_to_the_world = 0
+      -- 0 = refresh the browser as the buffer changes (not only on save).
+      -- Reloads from external edits are pushed by the FileChangedShellPost
+      -- autocmd in lua/config/autocmds.lua.
+      vim.g.mkdp_refresh_slow = 0
     end,
   },
 }
