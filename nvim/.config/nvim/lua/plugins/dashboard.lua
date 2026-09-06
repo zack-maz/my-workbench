@@ -14,8 +14,9 @@
 
 local WIDTH = 64
 
--- Letter-spaced to sit quietly under the art rather than compete with it.
-local TAGLINE = "o f f   t h e   g r i d"
+-- Letter-spaced under the art. A terminal cannot scale a single line, so
+-- tracking is the only lever here; colour stays NonText deliberately.
+local TAGLINE = "o  f  f     t  h  e     g  r  i  d"
 
 local ART = [[
                           @@@@@@%%%%
