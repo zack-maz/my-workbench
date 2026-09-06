@@ -1,6 +1,6 @@
 # Documentation
 
-Eight documents. Which one you want depends on why you're here.
+Nine documents. Which one you want depends on why you're here.
 
 ## Start here
 
@@ -17,6 +17,7 @@ files. Read this first; everything else is detail hanging off it.
 | **[yazi.md](yazi.md)** | Beginner's guide to the file manager. The three-column model, selection across directories, and the four different ways to find things. |
 | **[keybindings.md](keybindings.md)** | The full keymap in one place — herdr, Neovim, yazi, Ghostty. Reference, not tutorial. |
 | **[claude-code.md](claude-code.md)** | Claude Code inside herdr. Why its subagents and background shells show up as tabs, how the hooks do it, and the rule that gives heavyweight subtasks a real agent in a real tab. |
+| **[cover-sync.md](cover-sync.md)** | The hook that keeps `images/cover.png` in step across this repo, a local folder, and the GitHub profile — including why it guards against propagating a broken file, and why the profile README carries a `?v=` on the image URL. |
 
 If Neovim and yazi are new to you, read those two guides before the keymap —
 the keymap assumes you know what the tools are for.
