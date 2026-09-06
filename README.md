@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="images/cover.png" width="380"
+  <img src="images/cover.png" width="600"
        alt="Neovim starting up: an ASCII portrait of Zima on a near-black background, above the words 'off the grid'">
 </p>
 
