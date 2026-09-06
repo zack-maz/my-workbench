@@ -124,3 +124,11 @@ Each layer knows only about the one beneath it. Ghostty doesn't know what herdr
 does with the keys it forwards; herdr doesn't know Neovim is running in a pane.
 The one deliberate exception is `herdr-splits`, which exists precisely to make
 two adjacent layers agree about direction keys.
+
+## Further reading
+
+- [neovim.md](neovim.md) — beginner's guide to the editor and the four plugins added here
+- [yazi.md](yazi.md) — beginner's guide to the file manager
+- [keybindings.md](keybindings.md) — the full keymap
+- [theming.md](theming.md) — the palette and where each tool restates it
+- [stow.md](stow.md) — how the symlink layout works

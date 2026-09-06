@@ -10,7 +10,8 @@
   <a href="docs/install.md">Install</a> ·
   <a href="docs/keybindings.md">Keybindings</a> ·
   <a href="docs/theming.md">Theming</a> ·
-  <a href="docs/stow.md">Stow layout</a>
+  <a href="docs/stow.md">Stow layout</a><br>
+  <sub>New to these tools? <a href="docs/neovim.md">Neovim guide</a> · <a href="docs/yazi.md">yazi guide</a></sub>
 </p>
 
 ---
@@ -46,8 +47,8 @@ the browser preview — see [details worth stealing](#details-worth-stealing).
 |---|---|---|
 | [Ghostty](https://ghostty.org) | GPU terminal — the only GUI app in the loop | [`ghostty/`](ghostty/.config/ghostty/config) |
 | [herdr](https://herdr.dev) | Agent multiplexer; replaces tmux | [`herdr/`](herdr/.config/herdr/config.toml) |
-| [Neovim](https://neovim.io) + [LazyVim](https://lazyvim.org) | Editor | [`nvim/`](nvim/.config/nvim) |
-| [yazi](https://yazi-rs.github.io) | File manager, in and out of the editor | [`yazi/`](yazi/.config/yazi) |
+| [Neovim](https://neovim.io) + [LazyVim](https://lazyvim.org) | Editor — [guide](docs/neovim.md) | [`nvim/`](nvim/.config/nvim) |
+| [yazi](https://yazi-rs.github.io) | File manager, in and out of the editor — [guide](docs/yazi.md) | [`yazi/`](yazi/.config/yazi) |
 | [starship](https://starship.rs) | Prompt | [`starship/`](starship/.config/starship.toml) |
 | [atuin](https://atuin.sh) | Searchable shell history | [`atuin/`](atuin/.config/atuin/config.toml) |
 | zsh | Shell — eza, bat, fd, ripgrep, fzf, zoxide | [`zsh/`](zsh/.zshrc) |
@@ -97,7 +98,7 @@ These work identically in a herdr pane and inside Neovim:
 | `Alt` `h j k l` | Resize |
 | `<leader>-` | yazi at the current file |
 
-[Full keybindings →](docs/keybindings.md)
+[Full keybindings →](docs/keybindings.md) · New to these tools? [Neovim](docs/neovim.md) · [yazi](docs/yazi.md)
 
 ## Install
 

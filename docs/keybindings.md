@@ -66,32 +66,44 @@ falls back to LazyVim's window navigation.
 ## Neovim
 
 Leader is `Space` (LazyVim default). Only the additions are listed — everything
-else is [stock LazyVim](https://www.lazyvim.org/keymaps).
+else is [stock LazyVim](https://www.lazyvim.org/keymaps). Beginner walkthrough in
+[neovim.md](neovim.md).
 
 | Keys | Action |
 |---|---|
 | `<leader>` `-` | yazi, at the current file |
 | `<leader>` `c` `w` | yazi, in the working directory |
 
-> Do **not** also enable LazyVim's built-in yazi extra. Both register a picker
-> and you get two competing file managers on one key.
+> `<leader>-` **overrides** LazyVim's stock "split below" — use `<C-w>s` for a
+> horizontal split. And do not also enable LazyVim's built-in yazi extra: both
+> register a picker and you get two competing file managers on one key.
 
 ## yazi
 
-Stock yazi keys ([reference](https://yazi-rs.github.io/docs/quick-start)); no
-custom keymap file. The ones worth knowing:
+Stock yazi keys — this repo adds no custom keymap. Full walkthrough in
+[yazi.md](yazi.md).
 
 | Keys | Action |
 |---|---|
-| `h` `j` `k` `l` | Navigate — `l` enters, `h` goes up |
-| `Space` | Select |
+| `h` `j` `k` `l` | Navigate — `l` enters a directory, `h` goes up |
+| `H` / `L` | Back / forward through visited directories |
+| `Space` | Toggle selection (persists across directories) |
 | `y` / `x` / `p` | Yank / cut / paste |
-| `d` | Trash |
+| `d` / `D` | Trash / delete permanently |
 | `a` | Create file (trailing `/` creates a directory) |
 | `r` | Rename |
 | `.` | Toggle hidden files |
-| `/` | Search |
-| `q` | Quit |
+| `f` | Filter the current view |
+| `/` | Find next match in this directory (`n` / `N` to step) |
+| `s` / `S` | Search the tree by filename (`fd`) / by contents (`ripgrep`) |
+| `z` / `Z` | Jump via fzf / via zoxide |
+| `t` · `1`–`9` | New tab · switch to tab |
+| `w` | Task manager |
+| `~` or `F1` | Help — the full keymap |
+| `q` / `Q` | Quit, taking the shell with you / quit without changing directory |
+
+`q` leaves your shell in whatever directory you browsed to, which makes yazi a
+navigation tool as much as a file manager. `Q` leaves the shell where it was.
 
 Config sets `show_hidden = false` and `sort_dir_first = true`.
 
