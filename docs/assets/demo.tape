@@ -1,6 +1,6 @@
-# docs/demo.tape — PARKED, not yet producing a shippable GIF.
+# docs/assets/demo.tape — PARKED, not yet producing a shippable GIF.
 #
-#   vhs docs/demo.tape
+#   vhs docs/assets/demo.tape
 #
 # KNOWN ISSUE, already diagnosed: VHS starts zsh with its own minimal prompt and
 # does NOT source ~/.zshrc. A first render silently captured stock eza colors and
@@ -11,7 +11,7 @@
 # values Ghostty sets (#0a0a0a / #c8d3f5), ANSI ramp is TokyoNight Night — the
 # same hexes LS_COLORS, EZA_COLORS and the starship palette derive from.
 
-Output docs/demo.gif
+Output docs/assets/demo.gif
 
 Set Shell "zsh"
 Set FontFamily "JetBrainsMono Nerd Font"

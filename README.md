@@ -10,7 +10,8 @@
   <a href="docs/install.md">Install</a> ·
   <a href="docs/keybindings.md">Keybindings</a> ·
   <a href="docs/theming.md">Theming</a> ·
-  <a href="docs/stow.md">Stow layout</a><br>
+  <a href="docs/stow.md">Stow layout</a> ·
+  <a href="docs/">All docs</a><br>
   <sub>New to these tools? <a href="docs/neovim.md">Neovim guide</a> · <a href="docs/yazi.md">yazi guide</a></sub>
 </p>
 

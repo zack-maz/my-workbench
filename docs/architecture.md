@@ -127,6 +127,8 @@ two adjacent layers agree about direction keys.
 
 ## Further reading
 
+Full index: [docs/](README.md)
+
 - [neovim.md](neovim.md) — beginner's guide to the editor and the four plugins added here
 - [yazi.md](yazi.md) — beginner's guide to the file manager
 - [keybindings.md](keybindings.md) — the full keymap

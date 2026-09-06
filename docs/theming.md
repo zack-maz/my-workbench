@@ -143,7 +143,7 @@ everywhere:
 4. `on_colors` in `colorscheme.lua`
 5. `[flavor]` in yazi's `theme.toml`
 6. `[theme]` in herdr's `config.toml`
-7. `Set Theme` in [`demo.tape`](demo.tape), so the demo keeps matching
+7. `Set Theme` in [`assets/demo.tape`](assets/demo.tape), so the demo keeps matching
 
 Steps 1 and 2 are the ones that must agree exactly — they're the pair a reader
 notices when it's wrong.
