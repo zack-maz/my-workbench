@@ -23,7 +23,7 @@ filename where a preview should be, with no error explaining why.
 ### 2. Symlink the configs
 
 ```sh
-stow ghostty herdr nvim yazi zsh starship atuin git karabiner
+stow ghostty herdr nvim yazi zsh starship atuin git
 ```
 
 Run from the repo root. See [stow.md](stow.md) for what this does and how to
@@ -51,8 +51,20 @@ launchctl load ~/Library/LaunchAgents/com.zackmaz.capslock-f18.plist
 Applies immediately and on every login. Verify by pressing Caps Lock — it should
 do nothing at all, including not toggling the Caps Lock light.
 
-If you already run Karabiner-Elements, use `stow karabiner` **instead of** this
-launch agent, not in addition to it.
+### Optional: Karabiner instead of the launch agent
+
+The launch agent above is the default and needs no extra software. If you
+already run [Karabiner-Elements](https://karabiner-elements.pqrs.org), this repo
+carries the same remap as a Karabiner rule:
+
+```sh
+brew install --cask karabiner-elements   # not in the Brewfile
+stow karabiner
+```
+
+Use **one or the other**. Two things claiming the same physical key is a
+debugging problem you don't want. Karabiner is deliberately absent from the
+Brewfile and from the default `stow` line so the default path stays single.
 
 To undo:
 

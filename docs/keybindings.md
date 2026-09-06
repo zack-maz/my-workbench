@@ -133,3 +133,6 @@ hidutil property --set '{"UserKeyMapping":[]}'   # until next login
 
 The launch agent reapplies the remap at every login. See
 [install.md](install.md#3-caps-lock--f18) to remove it permanently.
+
+The remap is done by the `hidutil` launch agent. The Karabiner rule in
+`karabiner/` is an unused alternative — see [architecture.md](architecture.md#the-prefix-key).

@@ -50,9 +50,12 @@ keyboard, spent on a function nobody uses.
 The remap is a `hidutil` command run by a launch agent at login
 (`keymap/Library/LaunchAgents/com.zackmaz.capslock-f18.plist`). It is
 OS-level, so it applies everywhere, needs no running application, and costs
-nothing. `karabiner/` carries the same remap as a Karabiner-Elements rule —
-an alternative for people already running Karabiner, **not** a second layer to
-stack on top. Running both means two things are claiming the same key.
+nothing — which is why it, and not Karabiner, is the default.
+
+`karabiner/` carries the same remap as a Karabiner-Elements rule, for people
+already running Karabiner for other reasons. It is an **alternative, not a
+second layer**: it is not in the `Brewfile`, not in the default `stow` line, and
+running both would mean two things claiming the same physical key.
 
 ## Navigation across two split systems
 

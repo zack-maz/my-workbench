@@ -79,7 +79,7 @@ stow -D nvim      # unlink one package; files stay in the repo
 ```
 
 ```sh
-stow -D ghostty herdr nvim yazi zsh starship atuin git karabiner
+stow -D ghostty herdr nvim yazi zsh starship atuin git
 ```
 
 Unstowing removes symlinks only. Nothing in the repo is deleted, and any `.bak`
@@ -104,6 +104,7 @@ setup it prints nothing, which makes it a decent health check.
 \.stow-local-ignore
 README.md
 Brewfile
+LICENSE
 ```
 
 Patterns are regexes matched against basenames, so `\.git` needs the escaped

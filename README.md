@@ -53,7 +53,8 @@ the browser preview — see [details worth stealing](#details-worth-stealing).
 | [starship](https://starship.rs) | Prompt | [`starship/`](starship/.config/starship.toml) |
 | [atuin](https://atuin.sh) | Searchable shell history | [`atuin/`](atuin/.config/atuin/config.toml) |
 | zsh | Shell — eza, bat, fd, ripgrep, fzf, zoxide | [`zsh/`](zsh/.zshrc) |
-| [Karabiner](https://karabiner-elements.pqrs.org) / `hidutil` | Caps Lock → F18 | [`karabiner/`](karabiner/.config/karabiner) · [`keymap/`](keymap/Library/LaunchAgents) |
+| `hidutil` launch agent | Caps Lock → F18 | [`keymap/`](keymap/Library/LaunchAgents) |
+| [Karabiner](https://karabiner-elements.pqrs.org) | *Optional* alternative to the above | [`karabiner/`](karabiner/.config/karabiner) |
 
 ## How it fits together
 
@@ -110,7 +111,7 @@ git clone https://github.com/zack-maz/my-workbench.git ~/dotfiles
 cd ~/dotfiles
 
 brew bundle --file=Brewfile          # every tool, including yazi's preview backends
-stow ghostty herdr nvim yazi zsh starship atuin git karabiner
+stow ghostty herdr nvim yazi zsh starship atuin git
 
 # Caps Lock -> F18, now and at every login
 cp keymap/Library/LaunchAgents/com.zackmaz.capslock-f18.plist ~/Library/LaunchAgents/
@@ -125,6 +126,10 @@ Open Ghostty. It launches straight into herdr.
 > **Stow will not overwrite an existing regular file** — it skips silently, so
 > the old config keeps winning and the new one looks like it "didn't apply."
 > Back up and remove any real file at a target path first, or use `stow --adopt`.
+
+`karabiner/` is an **optional alternative** to the launch agent, for people who
+already run Karabiner-Elements. It is deliberately not in the `stow` line above
+and Karabiner is not in the `Brewfile` — pick one mechanism, not both.
 
 [Full install, verification and rollback →](docs/install.md)
 
@@ -180,12 +185,20 @@ repo, and the whole thing is reversible:
 
 ```sh
 stow -D nvim     # unlink one package
-stow -D ghostty herdr nvim yazi zsh starship atuin git karabiner   # unlink all
+stow -D ghostty herdr nvim yazi zsh starship atuin git   # unlink all
 ```
 
-`Brewfile`, `README.md` and `docs/` are repo metadata and are never stowed.
+`Brewfile`, `LICENSE`, `README.md` and `docs/` are repo metadata and are never stowed.
 
 [Stow layout, adding a package, gotchas →](docs/stow.md)
+
+## License
+
+[MIT](LICENSE) — take whatever is useful.
+
+Two vendored subtrees keep their own licenses: `nvim/.config/nvim/` derives from
+the LazyVim starter (Apache-2.0) and `yazi/.config/yazi/flavors/tokyo-night.yazi/`
+is a third-party flavor with its own LICENSE files.
 
 ## Secrets
 
