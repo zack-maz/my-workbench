@@ -15,6 +15,11 @@
   <sub>New to these tools? <a href="docs/neovim.md">Neovim guide</a> · <a href="docs/yazi.md">yazi guide</a></sub>
 </p>
 
+<p align="center">
+  <img src="images/nvim-startup.png" width="900"
+       alt="Neovim starting up: an ASCII portrait of Zima on a near-black background, the words 'off the grid', and the plugin-load timer">
+</p>
+
 ---
 
 ## The idea
