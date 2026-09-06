@@ -1,6 +1,6 @@
 # Documentation
 
-Seven documents. Which one you want depends on why you're here.
+Eight documents. Which one you want depends on why you're here.
 
 ## Start here
 
@@ -16,6 +16,7 @@ files. Read this first; everything else is detail hanging off it.
 | **[neovim.md](neovim.md)** | Beginner's guide to the editor. Modes, the leader key, finding files, LSP, and which four plugins are this setup's rather than LazyVim's. |
 | **[yazi.md](yazi.md)** | Beginner's guide to the file manager. The three-column model, selection across directories, and the four different ways to find things. |
 | **[keybindings.md](keybindings.md)** | The full keymap in one place — herdr, Neovim, yazi, Ghostty. Reference, not tutorial. |
+| **[claude-code.md](claude-code.md)** | Claude Code inside herdr. Why its subagents and background shells show up as tabs, how the hooks do it, and the rule that gives heavyweight subtasks a real agent in a real tab. |
 
 If Neovim and yazi are new to you, read those two guides before the keymap —
 the keymap assumes you know what the tools are for.
@@ -39,7 +40,7 @@ the keymap assumes you know what the tools are for.
 [install.md](install.md) → [keybindings.md](keybindings.md) → the two guides as needed.
 
 **"I want to understand it."**
-[architecture.md](architecture.md) → [theming.md](theming.md) → [stow.md](stow.md).
+[architecture.md](architecture.md) → [claude-code.md](claude-code.md) → [theming.md](theming.md) → [stow.md](stow.md).
 
 **"I want to steal one piece."**
 [architecture.md](architecture.md) for the mechanism, then the config it links to.

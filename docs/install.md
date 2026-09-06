@@ -23,11 +23,12 @@ filename where a preview should be, with no error explaining why.
 ### 2. Symlink the configs
 
 ```sh
-stow ghostty herdr nvim yazi zsh starship atuin git
+stow ghostty herdr nvim yazi zsh starship atuin git claude
 ```
 
 Run from the repo root. See [stow.md](stow.md) for what this does and how to
-back out.
+back out. `claude` links `~/.claude/CLAUDE.md` and one hook script — skip it
+if you don't use Claude Code.
 
 > **Stow will not overwrite an existing regular file.** It skips silently, the
 > old file keeps winning, and the new config looks like it "didn't apply." If a
@@ -86,21 +87,36 @@ and loads itself only inside a herdr pane. Both halves must be present —
 installing one without the other gives you `Ctrl-hjkl` that works in one
 direction and stops at the boundary.
 
-### 5. Open Ghostty
+### 5. Claude Code hooks
+
+```sh
+~/.claude/hooks/herdr-agent-tab.py install
+```
+
+Merges three hook entries into `~/.claude/settings.json` so Claude Code's
+subagents and background shells open as tabs in the current herdr workspace.
+Idempotent; `uninstall` reverses it. `settings.json` itself is deliberately
+not stowed — it carries machine-specific state. Why and how:
+[claude-code.md](claude-code.md).
+
+### 6. Open Ghostty
 
 It launches straight into herdr. Neovim installs its plugins on first run.
 
 ## Verify
 
 ```sh
-stow -n -v ghostty herdr nvim yazi zsh starship atuin git   # dry run, expect no output
-herdr config check                                          # config.toml parses
-readlink ~/.config/ghostty/config                           # -> ../../dotfiles/...
+stow -n -v ghostty herdr nvim yazi zsh starship atuin git claude   # dry run, expect no output
+herdr config check                                                 # config.toml parses
+readlink ~/.config/ghostty/config                                  # -> ../../dotfiles/...
+readlink ~/.claude/hooks/herdr-agent-tab.py                        # -> ../../dotfiles/claude/...
 ```
 
 A working setup: Caps Lock does nothing on its own, `Caps` `v` splits a pane,
 `Caps` `g` opens lazygit in a popup, `Ctrl-l` crosses from Neovim into the pane
-to its right, and the prompt shows a tiered path with a right-aligned clock.
+to its right, the prompt shows a tiered path with a right-aligned clock, and
+asking Claude to run `sleep 20` in the background makes a `$ …` tab appear
+and vanish twenty seconds later.
 
 ## Fonts
 
@@ -122,3 +138,4 @@ Reload without restarting:
 | herdr | `Caps` `Shift+r`, or `herdr server reload-config` |
 | zsh / starship | `source ~/.zshrc` |
 | Neovim | restart, or `:Lazy reload <plugin>` |
+| Claude Code hooks | nothing — `settings.json` is re-read on every event |

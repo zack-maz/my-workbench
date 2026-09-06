@@ -109,6 +109,36 @@ you aren't touching the keyboard, so a `FileChangedShellPost` autocmd calls
 The result: an agent writes a document and you watch it change in the editor and
 the browser without touching anything.
 
+## Agents get tabs
+
+The same assumption, one level up: **something other than you is running
+work**, and it should be visible where everything else is visible — in the
+tab bar.
+
+Claude Code's subagents and background shells run inside the `claude`
+process. No PTY, so herdr can't see them. What Claude Code does expose is a
+live file per task and a hook event when one starts and stops:
+
+```
+claude (main pane)
+  ├─ Agent tool ───▶ SubagentStart ──▶ herdr tab create --no-focus ──▶ ⚙ tab renders the transcript
+  │                  SubagentStop  ──▶ herdr tab close
+  └─ Bash, bg ─────▶ PostToolUse   ──▶ herdr tab create --no-focus ──▶ $ tab tails the output,
+                                                                         closes when the shell exits
+```
+
+[`herdr-agent-tab.py`](../claude/.claude/hooks/herdr-agent-tab.py) is the
+hook on all three events. It talks to herdr over the same socket API the
+`herdr` CLI uses, in the workspace the agent is running in (`HERDR_WORKSPACE_ID`
+is inherited by hooks). The tabs never take focus, and they close the moment
+the task does — they answer "what is it doing *right now*", not "what did it
+do".
+
+For a subtask worth supervising, the global [`CLAUDE.md`](../claude/.claude/CLAUDE.md)
+tells Claude to skip the in-process Agent tool and start a real `claude` in a
+real tab with `herdr agent start`, which herdr then tracks as a first-class
+agent. Mechanism and install: [claude-code.md](claude-code.md).
+
 ## Layering
 
 ```
@@ -121,12 +151,14 @@ herdr                 session, panes, agents      owns F18 as prefix
 zsh                   shell, colors, history      starship prompt
         │
 nvim / yazi / lazygit                             share Ctrl-hjkl with herdr
+claude                agent                       hooks open herdr tabs for its subagents
 ```
 
 Each layer knows only about the one beneath it. Ghostty doesn't know what herdr
 does with the keys it forwards; herdr doesn't know Neovim is running in a pane.
-The one deliberate exception is `herdr-splits`, which exists precisely to make
-two adjacent layers agree about direction keys.
+The deliberate exceptions are `herdr-splits`, which exists precisely to make
+two adjacent layers agree about direction keys, and the Claude Code hooks,
+which reach back up to herdr to give subagents a place on screen.
 
 ## Further reading
 
@@ -135,5 +167,6 @@ Full index: [docs/](README.md)
 - [neovim.md](neovim.md) — beginner's guide to the editor and the four plugins added here
 - [yazi.md](yazi.md) — beginner's guide to the file manager
 - [keybindings.md](keybindings.md) — the full keymap
+- [claude-code.md](claude-code.md) — Claude Code inside herdr: subagents as tabs
 - [theming.md](theming.md) — the palette and where each tool restates it
 - [stow.md](stow.md) — how the symlink layout works

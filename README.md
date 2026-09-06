@@ -43,9 +43,12 @@ and Neovim all draw from the same TokyoNight hexes over a near-black `#0a0a0a`.
 Directory blue in `ls` is the same blue as the directory in the prompt, because
 both are literally `#7aa2f7`. Nothing looks bolted on.
 
-**The editor assumes an agent is writing the files.** Neovim watches markdown
+**The workbench assumes an agent is doing the work.** Neovim watches markdown
 buffers for external writes and reloads them live, pushing the change through to
-the browser preview — see [details worth stealing](#details-worth-stealing).
+the browser preview. And when Claude Code spins up a subagent or a background
+shell, a hook opens it as a tab in the current workspace — so the work an agent
+delegates is as visible as the work it does in front of you — see
+[details worth stealing](#details-worth-stealing).
 
 ## The stack
 
@@ -58,6 +61,7 @@ the browser preview — see [details worth stealing](#details-worth-stealing).
 | [starship](https://starship.rs) | Prompt | [`starship/`](starship/.config/starship.toml) |
 | [atuin](https://atuin.sh) | Searchable shell history | [`atuin/`](atuin/.config/atuin/config.toml) |
 | zsh | Shell — eza, bat, fd, ripgrep, fzf, zoxide | [`zsh/`](zsh/.zshrc) |
+| [Claude Code](https://claude.com/claude-code) | The agent — its subagents and background shells open as herdr tabs — [guide](docs/claude-code.md) | [`claude/`](claude/.claude) |
 | `hidutil` launch agent | Caps Lock → F18 | [`keymap/`](keymap/Library/LaunchAgents) |
 | [Karabiner](https://karabiner-elements.pqrs.org) | *Optional* alternative to the above | [`karabiner/`](karabiner/.config/karabiner) |
 
@@ -116,7 +120,7 @@ git clone https://github.com/zack-maz/my-workbench.git ~/dotfiles
 cd ~/dotfiles
 
 brew bundle --file=Brewfile          # every tool, including yazi's preview backends
-stow ghostty herdr nvim yazi zsh starship atuin git
+stow ghostty herdr nvim yazi zsh starship atuin git claude
 
 # Caps Lock -> F18, now and at every login
 cp keymap/Library/LaunchAgents/com.zackmaz.capslock-f18.plist ~/Library/LaunchAgents/
@@ -124,6 +128,9 @@ launchctl load ~/Library/LaunchAgents/com.zackmaz.capslock-f18.plist
 
 # seamless herdr <-> nvim navigation
 herdr plugin install lmilojevicc/herdr-splits.nvim --yes
+
+# Claude Code subagents and background shells as herdr tabs
+~/.claude/hooks/herdr-agent-tab.py install
 ```
 
 Open Ghostty. It launches straight into herdr.
@@ -139,6 +146,19 @@ and Karabiner is not in the `Brewfile` — pick one mechanism, not both.
 [Full install, verification and rollback →](docs/install.md)
 
 ## Details worth stealing
+
+**Subagents that show up as tabs.**
+Claude Code runs subagents and background shells inside its own process —
+no PTY, nothing for a multiplexer to show. But it writes each one's output to
+a live file and fires `SubagentStart`/`SubagentStop`/`PostToolUse` hooks.
+[`herdr-agent-tab.py`](claude/.claude/hooks/herdr-agent-tab.py) turns each
+into a `--no-focus` tab in the current workspace: `⚙ Review the diff` renders
+the subagent's transcript as it works, `$ Run the tests` tails the shell, and
+both close the moment the task does. A shell tab knows its shell has exited
+because nothing else holds the output file open (`lsof`). Heavyweight subtasks
+skip all this: the global [`CLAUDE.md`](claude/.claude/CLAUDE.md) has Claude
+start a real `claude` in a real tab with `herdr agent start` instead.
+[How it works →](docs/claude-code.md)
 
 **Markdown that reloads while an agent writes it.**
 LazyVim only runs `:checktime` on `FocusGained`, so a file rewritten by an agent
@@ -190,7 +210,7 @@ repo, and the whole thing is reversible:
 
 ```sh
 stow -D nvim     # unlink one package
-stow -D ghostty herdr nvim yazi zsh starship atuin git   # unlink all
+stow -D ghostty herdr nvim yazi zsh starship atuin git claude   # unlink all
 ```
 
 `Brewfile`, `LICENSE`, `README.md` and `docs/` are repo metadata and are never stowed.

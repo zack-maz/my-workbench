@@ -35,3 +35,6 @@ herdr/.config/herdr/.plugins.lock
 herdr/.config/herdr/plugins/
 herdr/.config/herdr/plugins.json
 herdr/.config/herdr/release-notes.json
+
+# Python bytecode from the claude hook
+__pycache__/

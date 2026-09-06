@@ -79,7 +79,7 @@ stow -D nvim      # unlink one package; files stay in the repo
 ```
 
 ```sh
-stow -D ghostty herdr nvim yazi zsh starship atuin git
+stow -D ghostty herdr nvim yazi zsh starship atuin git claude
 ```
 
 Unstowing removes symlinks only. Nothing in the repo is deleted, and any `.bak`
@@ -132,3 +132,11 @@ flags. From anywhere else you need `stow -t ~`.
 `~/.config/herdr/` — which is the repo. These are gitignored; only
 `config.toml` is tracked. Check `git status` after a tool update, because new
 artifact filenames show up as untracked and need adding to `.gitignore`.
+Likewise `__pycache__/` next to the Claude Code hook: Python writes it on first
+run, and without the ignore entry Stow would happily symlink it into `~/.claude`.
+
+**Partially owned directories.** `~/.claude/` is a real directory full of
+Claude Code's own files; the `claude` package only claims two paths inside it.
+Stow handles this — it links the two files individually rather than folding
+the directory — but the same "won't overwrite a real file" rule applies: an
+existing `~/.claude/CLAUDE.md` must be moved out of the way first.
