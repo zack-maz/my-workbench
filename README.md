@@ -17,7 +17,7 @@
 
 <p align="center">
   <img src="images/nvim-startup.png" width="900"
-       alt="Neovim starting up: an ASCII portrait of Zima on a near-black background, the words 'off the grid', and the plugin-load timer">
+       alt="Neovim starting up: an ASCII portrait of Zima on a near-black background, above the words 'off the grid'">
 </p>
 
 ---
