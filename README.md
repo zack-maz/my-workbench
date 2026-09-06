@@ -61,7 +61,7 @@ delegates is as visible as the work it does in front of you — see
 | [starship](https://starship.rs) | Prompt | [`starship/`](starship/.config/starship.toml) |
 | [atuin](https://atuin.sh) | Searchable shell history | [`atuin/`](atuin/.config/atuin/config.toml) |
 | zsh | Shell — eza, bat, fd, ripgrep, fzf, zoxide | [`zsh/`](zsh/.zshrc) |
-| [Claude Code](https://claude.com/claude-code) | The agent — its subagents and background shells open as herdr tabs — [guide](docs/claude-code.md) | [`claude/`](claude/.claude) |
+| [Claude Code](https://claude.com/claude-code) | The agent — hooks put its [subagents in herdr tabs](docs/claude-code.md) and keep the [cover image in sync](docs/cover-sync.md) | [`claude/`](claude/.claude) |
 | `hidutil` launch agent | Caps Lock → F18 | [`keymap/`](keymap/Library/LaunchAgents) |
 | [Karabiner](https://karabiner-elements.pqrs.org) | *Optional* alternative to the above | [`karabiner/`](karabiner/.config/karabiner) |
 

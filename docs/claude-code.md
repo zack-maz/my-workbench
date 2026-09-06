@@ -148,3 +148,9 @@ needed for this. The two are independent and can coexist.
 The hooks are Claude Code-specific. Other agents with hook systems (Codex,
 Copilot, Cursor …) expose different events and different task files; the
 pattern ports, the script doesn't.
+
+## Related
+
+[cover-sync.md](cover-sync.md) — the other hook in the `claude/` package. It
+answers a different question (keeping one image correct in three places) with
+the same mechanism: a `PostToolUse` hook that is a no-op on nearly every run.

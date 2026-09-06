@@ -167,6 +167,10 @@ Full index: [docs/](README.md)
 - [neovim.md](neovim.md) — beginner's guide to the editor and the four plugins added here
 - [yazi.md](yazi.md) — beginner's guide to the file manager
 - [keybindings.md](keybindings.md) — the full keymap
-- [claude-code.md](claude-code.md) — Claude Code inside herdr: subagents as tabs
 - [theming.md](theming.md) — the palette and where each tool restates it
 - [stow.md](stow.md) — how the symlink layout works
+
+The two hooks in the `claude/` package:
+
+- [claude-code.md](claude-code.md) — Claude Code inside herdr: subagents as tabs
+- [cover-sync.md](cover-sync.md) — keeping the cover image in step across three places

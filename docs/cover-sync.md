@@ -107,3 +107,8 @@ in Claude Code to disable it interactively. The script is inert on its own.
 `images/cover-full.png` is the uncropped capture the cover is cropped from. It
 is kept because the crop is not reversible, and it is deliberately *not* part
 of the sync — only `cover.png` is.
+
+[claude-code.md](claude-code.md) — the other hook in the `claude/` package,
+which opens a herdr tab for every subagent and background shell. It installs
+its own `settings.json` entries with a subcommand; this one still wants that
+entry added by hand.
