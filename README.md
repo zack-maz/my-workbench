@@ -64,7 +64,6 @@ delegates is as visible as the work it does in front of you — see
 | [Claude Code](https://claude.com/claude-code) | The agent — hooks put its [subagents in herdr tabs](docs/claude-code.md) and keep the [cover image in sync](docs/cover-sync.md) | [`claude/`](claude/.claude) |
 | `hidutil` launch agent | Caps Lock → F18 | [`keymap/`](keymap/Library/LaunchAgents) |
 | [Karabiner](https://karabiner-elements.pqrs.org) | *Optional* alternative to the above | [`karabiner/`](karabiner/.config/karabiner) |
-| IBM Bob Shell | *Optional* — herdr plugin putting Bob panes in the sidebar | [`bob/`](bob) |
 
 ## How it fits together
 
@@ -143,11 +142,6 @@ Open Ghostty. It launches straight into herdr.
 `karabiner/` is an **optional alternative** to the launch agent, for people who
 already run Karabiner-Elements. It is deliberately not in the `stow` line above
 and Karabiner is not in the `Brewfile` — pick one mechanism, not both.
-
-`bob/` is **optional** on the same terms — a herdr plugin that gives IBM Bob Shell
-panes the sidebar treatment the built-in agents get. Not in the `stow` line, and
-Bob is not in the `Brewfile`. `stow bob` only on a machine that runs Bob; see
-[`bob/README.md`](bob/README.md) for the sidebar rows it expects.
 
 [Full install, verification and rollback →](docs/install.md)
 
