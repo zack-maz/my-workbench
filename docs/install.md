@@ -75,6 +75,21 @@ rm ~/Library/LaunchAgents/com.zackmaz.capslock-f18.plist
 hidutil property --set '{"UserKeyMapping":[]}'
 ```
 
+### Optional: IBM Bob Shell plugin
+
+`bob/` is its own Stow package: a herdr plugin that gives IBM Bob Shell panes the
+same sidebar state and session restore the built-in agents get. Stow it only on
+a machine that runs Bob:
+
+```sh
+stow bob
+herdr server reload-config
+```
+
+Like Karabiner, it is left out of the default `stow` line, and Bob is not in the
+Brewfile. To remove it, run `stow -D bob`. See [`bob/README.md`](../bob/README.md)
+for the sidebar rows it expects.
+
 ### 4. herdr ↔ nvim navigation
 
 ```sh
