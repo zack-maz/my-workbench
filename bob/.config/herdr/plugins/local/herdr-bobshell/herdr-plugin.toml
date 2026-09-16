@@ -1,0 +1,15 @@
+id = "herdr-bobshell"
+name = "Herdr Bob Shell"
+version = "0.2.0"
+min_herdr_version = "0.7.0"
+description = "Agent state detection and session restore for IBM Bob Shell (bob, bob2)"
+platforms = ["macos", "linux"]
+
+# Herdr's agent-detection manifests only patch agents compiled into the binary,
+# so Bob state is classified out-of-process and pushed back through
+# pane.report_agent — the same reported-state API the bundled integrations use.
+# The same daemon records each Bob pane's task id and re-runs `bob -r <task>`
+# after a server restart, which is what [session] resume_agents_on_restore does
+# for the agents Herdr does know about.
+[[startup]]
+command = ["python3", "bobshell-state.py"]
