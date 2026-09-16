@@ -2,7 +2,7 @@
 # All options validated against Ghostty 1.3.1. Stow-owned: real file in ~/dotfiles.
 
 # --- Font (TERM-01, TERM-04) ---
-font-family = "JetBrainsMono Nerd Font"
+font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 14
 # Ligatures are ON by default (D-02). To disable, uncomment:
 # font-feature = -calt
