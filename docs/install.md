@@ -80,11 +80,11 @@ hidutil property --set '{"UserKeyMapping":[]}'
 [`packages/herdr-bobshell/`](../packages/herdr-bobshell) gives IBM Bob Shell
 panes what Claude Code gets here: live state in the herdr sidebar, and a
 background tab for each subagent. It's an npm package, not a Stow package, and
-it's marked private, so npm installs it from this repo rather than the
-registry:
+it's marked private, so it's installed from a GitHub release of this repo
+rather than the npm registry:
 
 ```sh
-npm install -g "github:zack-maz/my-workbench#path:packages/herdr-bobshell"
+npm install -g https://github.com/zack-maz/my-workbench/releases/download/herdr-bobshell-v0.1.0/herdr-bobshell-connector-0.1.0.tgz
 herdr-bobshell install    # Bob hooks + herdr plugin link + start the daemon
 herdr-bobshell status
 ```

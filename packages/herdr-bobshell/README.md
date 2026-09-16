@@ -23,13 +23,18 @@ Node only, no dependencies (uses the built-in `node:sqlite`).
 ## Install
 
 The package is private (`"private": true`, never published to the npm
-registry). npm installs it straight from this repo's subdirectory:
+registry). Each version is a `.tgz` attached to a
+[GitHub release](https://github.com/zack-maz/my-workbench/releases) of this
+repo:
 
 ```bash
-npm install -g "github:zack-maz/my-workbench#path:packages/herdr-bobshell"
+npm install -g https://github.com/zack-maz/my-workbench/releases/download/herdr-bobshell-v0.1.0/herdr-bobshell-connector-0.1.0.tgz
 herdr-bobshell install
 herdr-bobshell status
 ```
+
+(npm can't install `github:…#path:packages/herdr-bobshell` directly. It
+downloads the whole repo's tarball and ignores the subdirectory.)
 
 From a local clone, use `npm install -g ~/dotfiles/packages/herdr-bobshell`
 instead. That links the checkout, so edits take effect after
@@ -50,7 +55,7 @@ Bob sessions that were already running only pick up the hooks after you
 restart them. Until then, their subagents still get tabs by matching the
 directory (see below).
 
-**Updating.** Re-run the `npm install -g` line, then `herdr-bobshell install`.
+**Updating.** Run `npm install -g` with the newer release's URL, then `herdr-bobshell install`.
 The hooks and the plugin link point at the installed path, so run `install`
 again whenever that path changes.
 
@@ -154,3 +159,7 @@ npm test                                   # classifier, hook, installer
 node bin/herdr-bobshell.js daemon          # foreground; takes over a running daemon
 node bin/herdr-bobshell.js mirror <id>     # render any subagent, finished or not
 ```
+
+To release: bump `version` in `package.json`, commit and push, then run
+`npm run release`. It tests, packs and creates the
+`herdr-bobshell-v<version>` GitHub release with the tarball attached.

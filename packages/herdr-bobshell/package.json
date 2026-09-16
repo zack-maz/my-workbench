@@ -14,7 +14,8 @@
     "README.md"
   ],
   "scripts": {
-    "test": "node --test test/"
+    "test": "node --test test/",
+    "release": "scripts/release.sh"
   },
   "engines": {
     "node": ">=22.13"
