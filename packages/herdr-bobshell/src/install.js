@@ -63,6 +63,15 @@ export function configureBobHooks(install, file = BOB_SETTINGS) {
   fs.writeFileSync(file, JSON.stringify(settings, null, 2) + "\n");
 }
 
+/** Resolved path, or null when it no longer exists (e.g. an uninstalled copy). */
+function realpath(p) {
+  try {
+    return fs.realpathSync(p);
+  } catch {
+    return null;
+  }
+}
+
 /** Where herdr currently has this plugin linked from, or null. */
 function linkedRoot() {
   const res = herdrCli("plugin", "list", "--json");
@@ -113,10 +122,11 @@ export async function install() {
   ok(`Bob hooks (${Object.keys(HOOK_EVENTS).join(", ")}) -> ${BOB_SETTINGS}`);
 
   const linked = linkedRoot();
-  if (linked && fs.realpathSync(linked) === fs.realpathSync(ROOT)) {
+  if (linked && realpath(linked) === realpath(ROOT)) {
     ok("herdr plugin already linked");
   } else {
-    // Linked from somewhere else (e.g. a dev checkout): point herdr here instead.
+    // Linked from somewhere else (a dev checkout, or a copy that's since been
+    // uninstalled): point herdr here instead.
     if (linked) herdrCli("plugin", "unlink", PLUGIN_ID);
     const link = herdrCli("plugin", "link", ROOT);
     if (link.ok) ok(`herdr plugin linked (${ROOT})`);
@@ -154,7 +164,10 @@ export async function status() {
   const pong = await call("ping");
   (pong ? ok : bad)(`herdr socket ${SOCKET_PATH}`);
   const linked = linkedRoot();
-  (linked ? ok : bad)(linked ? `herdr plugin linked from ${linked}` : "herdr plugin not linked");
+  if (!linked) bad("herdr plugin not linked");
+  else if (!realpath(linked)) bad(`herdr plugin linked from ${linked}, which no longer exists; run install`);
+  else if (realpath(linked) !== realpath(ROOT)) warn(`herdr plugin linked from ${linked}, not this copy (${ROOT}); run install to switch`);
+  else ok(`herdr plugin linked from ${linked}`);
   const settings = readJson(BOB_SETTINGS, {});
   const missing = Object.keys(HOOK_EVENTS).filter((e) => !(settings.hooks?.[e] ?? []).some(isOurs));
   (missing.length ? bad : ok)(missing.length ? `Bob hooks missing: ${missing.join(", ")}` : `Bob hooks in ${BOB_SETTINGS}`);

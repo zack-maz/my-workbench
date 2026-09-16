@@ -1,6 +1,6 @@
 {
   "name": "@zack-maz/herdr-bobshell-connector",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Connect IBM Bob Shell to herdr: sidebar agent state for bob panes and a live tab for every Bob subagent",
   "type": "module",
   "bin": {
