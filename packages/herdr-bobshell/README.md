@@ -161,7 +161,8 @@ Bump `version` in `package.json`, commit and push, then run `npm run release`.
 It checks the version isn't on npm yet, runs the tests, and pushes a
 `herdr-bobshell-v<version>` tag. The tag triggers
 [`.github/workflows/publish-herdr-bobshell.yml`](../../.github/workflows/publish-herdr-bobshell.yml),
-which tests again, publishes to npm and creates the GitHub release.
+which tests again, publishes to npm and to GitHub Packages (that's what lists
+the package on the repo page), and creates the GitHub release.
 
 The workflow uses [npm trusted publishing](https://docs.npmjs.com/trusted-publishers),
 so no npm token is stored in the repo. On the package's npm settings page, the

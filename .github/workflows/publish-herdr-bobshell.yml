@@ -5,6 +5,9 @@
 # repo, and the job exchanges its GitHub OIDC token for a short-lived publish
 # credential. There is no NPM_TOKEN secret. npm attaches a provenance statement
 # automatically (public package, public repo).
+#
+# The same version also goes to GitHub Packages, which is what lists the
+# package on the repo page; that publish uses the workflow's GITHUB_TOKEN.
 name: Publish herdr-bobshell
 
 on:
@@ -15,6 +18,7 @@ on:
 permissions:
   contents: write # create the GitHub release
   id-token: write # npm trusted publishing
+  packages: write # GitHub Packages
 
 jobs:
   publish:
@@ -44,6 +48,14 @@ jobs:
       - run: npm test
 
       - run: npm publish
+
+      - name: Publish to GitHub Packages
+        env:
+          NODE_AUTH_TOKEN: ${{ github.token }}
+        run: |
+          printf '%s\n' '@zack-maz:registry=https://npm.pkg.github.com' \
+            '//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}' > "$RUNNER_TEMP/ghp.npmrc"
+          npm publish --userconfig "$RUNNER_TEMP/ghp.npmrc" --registry https://npm.pkg.github.com
 
       - name: GitHub release
         env:
