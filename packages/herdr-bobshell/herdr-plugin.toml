@@ -1,0 +1,12 @@
+id = "herdr-bobshell-connector"
+name = "Herdr Bob Shell Connector"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Sidebar agent state for IBM Bob Shell panes, and a live tab for every Bob subagent"
+platforms = ["macos", "linux"]
+
+# herdr can't learn a new agent from a detection manifest, so Bob panes are
+# classified out-of-process and reported through pane.report_agent. The same
+# daemon watches Bob's task store and opens a tab per running subagent.
+[[startup]]
+command = ["sh", "bin/start-daemon.sh"]

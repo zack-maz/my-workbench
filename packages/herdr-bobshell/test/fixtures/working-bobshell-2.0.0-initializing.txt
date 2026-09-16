@@ -1,0 +1,15 @@
+                        ─────────────────── Version 2.0.0 ───────────────────
+
+
+                                            Did you know?
+
+                               You can use Ctrl+J to write a new line
+                          You can use `bob -r` to resume a previous session
+        How to use Bob Shell? Just ask and it will use the docs tool to answer your question
+
+                             ~/Documents/Bob-Projects/micro/bob-updates
+
+                 Users should independently verify accuracy of AI-generated content.
+
+
+ ⠋ Initializing session…

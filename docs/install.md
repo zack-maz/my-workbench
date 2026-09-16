@@ -75,6 +75,26 @@ rm ~/Library/LaunchAgents/com.zackmaz.capslock-f18.plist
 hidutil property --set '{"UserKeyMapping":[]}'
 ```
 
+### Optional: IBM Bob Shell connector
+
+[`packages/herdr-bobshell/`](../packages/herdr-bobshell) gives IBM Bob Shell
+panes what Claude Code gets here: live state in the herdr sidebar, and a
+background tab for each subagent. It's an npm package, not a Stow package, and
+it's marked private, so npm installs it from this repo rather than the
+registry:
+
+```sh
+npm install -g "github:zack-maz/my-workbench#path:packages/herdr-bobshell"
+herdr-bobshell install    # Bob hooks + herdr plugin link + start the daemon
+herdr-bobshell status
+```
+
+Like Karabiner, it's left out of the default path, and Bob is not in the
+Brewfile. To remove it, run `herdr-bobshell uninstall`, then
+`npm uninstall -g herdr-bobshell-connector`. See the
+[package README](../packages/herdr-bobshell/README.md) for how it works and
+its limits.
+
 ### 4. herdr ↔ nvim navigation
 
 ```sh

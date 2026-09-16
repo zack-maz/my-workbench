@@ -1,0 +1,39 @@
+{
+  "name": "herdr-bobshell-connector",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Connect IBM Bob Shell to herdr: sidebar agent state for bob panes and a live tab for every Bob subagent",
+  "type": "module",
+  "bin": {
+    "herdr-bobshell": "bin/herdr-bobshell.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "herdr-plugin.toml",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/"
+  },
+  "engines": {
+    "node": ">=22.13"
+  },
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "keywords": [
+    "herdr",
+    "bobshell",
+    "bob",
+    "terminal",
+    "agents"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zack-maz/my-workbench.git",
+    "directory": "packages/herdr-bobshell"
+  },
+  "license": "MIT"
+}

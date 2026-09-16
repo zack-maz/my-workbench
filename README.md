@@ -64,6 +64,7 @@ delegates is as visible as the work it does in front of you — see
 | [Claude Code](https://claude.com/claude-code) | The agent — hooks put its [subagents in herdr tabs](docs/claude-code.md) and keep the [cover image in sync](docs/cover-sync.md) | [`claude/`](claude/.claude) |
 | `hidutil` launch agent | Caps Lock → F18 | [`keymap/`](keymap/Library/LaunchAgents) |
 | [Karabiner](https://karabiner-elements.pqrs.org) | *Optional* alternative to the above | [`karabiner/`](karabiner/.config/karabiner) |
+| [IBM Bob Shell](https://www.ibm.com/products/bob) | *Optional* — sidebar state and subagent tabs in herdr, like Claude Code gets. A private npm package, not a Stow package | [`packages/herdr-bobshell/`](packages/herdr-bobshell) |
 
 ## How it fits together
 
@@ -214,6 +215,7 @@ stow -D ghostty herdr nvim yazi zsh starship atuin git claude   # unlink all
 ```
 
 `Brewfile`, `LICENSE`, `README.md` and `docs/` are repo metadata and are never stowed.
+`packages/` holds npm packages, which are installed with npm instead of Stow.
 
 [Stow layout, adding a package, gotchas →](docs/stow.md)
 

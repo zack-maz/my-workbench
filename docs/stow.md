@@ -111,9 +111,10 @@ Patterns are regexes matched against basenames, so `\.git` needs the escaped
 dot and does not match the `git/` **package** — which is why a package named
 `git` can coexist with the ignore entry for `.git`.
 
-`docs/` is not listed because it isn't a package: Stow only ever looks inside
-the package directories named on the command line, and `docs` is never one of
-them.
+`docs/` and `packages/` are not listed because they aren't Stow packages:
+Stow only ever looks inside the package directories named on the command line,
+and neither is ever one of them. `packages/` holds npm packages, which npm
+installs.
 
 ## Gotchas
 
