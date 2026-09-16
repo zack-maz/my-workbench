@@ -22,19 +22,14 @@ Node only, no dependencies (uses the built-in `node:sqlite`).
 
 ## Install
 
-The package is private (`"private": true`, never published to the npm
-registry). Each version is a `.tgz` attached to a
-[GitHub release](https://github.com/zack-maz/my-workbench/releases) of this
-repo:
+Published to npm as
+[`@zack-maz/herdr-bobshell-connector`](https://www.npmjs.com/package/@zack-maz/herdr-bobshell-connector).
 
 ```bash
-npm install -g https://github.com/zack-maz/my-workbench/releases/download/herdr-bobshell-v0.1.0/herdr-bobshell-connector-0.1.0.tgz
+npm install -g @zack-maz/herdr-bobshell-connector
 herdr-bobshell install
 herdr-bobshell status
 ```
-
-(npm can't install `github:…#path:packages/herdr-bobshell` directly. It
-downloads the whole repo's tarball and ignores the subdirectory.)
 
 From a local clone, use `npm install -g ~/dotfiles/packages/herdr-bobshell`
 instead. That links the checkout, so edits take effect after
@@ -55,12 +50,12 @@ Bob sessions that were already running only pick up the hooks after you
 restart them. Until then, their subagents still get tabs by matching the
 directory (see below).
 
-**Updating.** Run `npm install -g` with the newer release's URL, then `herdr-bobshell install`.
+**Updating.** `npm install -g @zack-maz/herdr-bobshell-connector@latest`, then `herdr-bobshell install`.
 The hooks and the plugin link point at the installed path, so run `install`
 again whenever that path changes.
 
 **Removing.** Run `herdr-bobshell uninstall` (add `--purge` to also delete the
-state directory), then `npm uninstall -g herdr-bobshell-connector`.
+state directory), then `npm uninstall -g @zack-maz/herdr-bobshell-connector`.
 
 ## How it works
 
@@ -160,6 +155,16 @@ node bin/herdr-bobshell.js daemon          # foreground; takes over a running da
 node bin/herdr-bobshell.js mirror <id>     # render any subagent, finished or not
 ```
 
-To release: bump `version` in `package.json`, commit and push, then run
-`npm run release`. It tests, packs and creates the
-`herdr-bobshell-v<version>` GitHub release with the tarball attached.
+## Releasing
+
+Bump `version` in `package.json`, commit and push, then run `npm run release`.
+It checks the version isn't on npm yet, runs the tests, and pushes a
+`herdr-bobshell-v<version>` tag. The tag triggers
+[`.github/workflows/publish-herdr-bobshell.yml`](../../.github/workflows/publish-herdr-bobshell.yml),
+which tests again, publishes to npm and creates the GitHub release.
+
+The workflow uses [npm trusted publishing](https://docs.npmjs.com/trusted-publishers),
+so no npm token is stored in the repo. On the package's npm settings page, the
+trusted publisher is set to GitHub Actions, `zack-maz/my-workbench`, workflow
+`publish-herdr-bobshell.yml`. npm attaches a provenance statement to each
+version published this way.

@@ -80,18 +80,17 @@ hidutil property --set '{"UserKeyMapping":[]}'
 [`packages/herdr-bobshell/`](../packages/herdr-bobshell) gives IBM Bob Shell
 panes what Claude Code gets here: live state in the herdr sidebar, and a
 background tab for each subagent. It's an npm package, not a Stow package, and
-it's marked private, so it's installed from a GitHub release of this repo
-rather than the npm registry:
+it's published to npm as `@zack-maz/herdr-bobshell-connector`:
 
 ```sh
-npm install -g https://github.com/zack-maz/my-workbench/releases/download/herdr-bobshell-v0.1.0/herdr-bobshell-connector-0.1.0.tgz
+npm install -g @zack-maz/herdr-bobshell-connector
 herdr-bobshell install    # Bob hooks + herdr plugin link + start the daemon
 herdr-bobshell status
 ```
 
 Like Karabiner, it's left out of the default path, and Bob is not in the
 Brewfile. To remove it, run `herdr-bobshell uninstall`, then
-`npm uninstall -g herdr-bobshell-connector`. See the
+`npm uninstall -g @zack-maz/herdr-bobshell-connector`. See the
 [package README](../packages/herdr-bobshell/README.md) for how it works and
 its limits.
 

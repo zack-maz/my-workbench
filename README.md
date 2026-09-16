@@ -64,7 +64,7 @@ delegates is as visible as the work it does in front of you — see
 | [Claude Code](https://claude.com/claude-code) | The agent — hooks put its [subagents in herdr tabs](docs/claude-code.md) and keep the [cover image in sync](docs/cover-sync.md) | [`claude/`](claude/.claude) |
 | `hidutil` launch agent | Caps Lock → F18 | [`keymap/`](keymap/Library/LaunchAgents) |
 | [Karabiner](https://karabiner-elements.pqrs.org) | *Optional* alternative to the above | [`karabiner/`](karabiner/.config/karabiner) |
-| [IBM Bob Shell](https://www.ibm.com/products/bob) | *Optional* — sidebar state and subagent tabs in herdr, like Claude Code gets. A private npm package, not a Stow package | [`packages/herdr-bobshell/`](packages/herdr-bobshell) |
+| [IBM Bob Shell](https://www.ibm.com/products/bob) | *Optional* — sidebar state and subagent tabs in herdr, like Claude Code gets. An npm package, not a Stow package | [`packages/herdr-bobshell/`](packages/herdr-bobshell) |
 
 ## How it fits together
 
