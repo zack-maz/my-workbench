@@ -104,6 +104,16 @@ alias lg='lazygit'
 alias vim='nvim'
 alias v='nvim'
 
+# Restart the mini past its FileVault unlock screen, so it comes back online on its own.
+# Never use `shutdown -r` there: it stops at the unlock screen with no network.
+mini-reboot() {
+  if [ "$(scutil --get LocalHostName)" = zm-mini ]; then
+    sudo fdesetup authrestart
+  else
+    ssh -t zm-mini 'sudo fdesetup authrestart'
+  fi
+}
+
 # ── zsh plugins (autosuggestions, then syntax-highlighting LAST) ─────────────
 BREW_SHARE="$(brew --prefix)/share"
 [ -f "$BREW_SHARE/zsh-autosuggestions/zsh-autosuggestions.zsh" ] \
