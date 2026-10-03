@@ -38,3 +38,5 @@ herdr/.config/herdr/release-notes.json
 
 # Python bytecode from the claude hook
 __pycache__/
+herdr/.config/herdr/herdr.sock.agent
+herdr/.config/herdr/session-snapshots/
