@@ -1,0 +1,28 @@
+#!/bin/zsh -l
+# Ghostty launch picker, shared by zm-air and zm-mini:
+#   [l]aptop  herdr on zm-air   (local on the Air, --remote from the mini)
+#   [m]ini    herdr on zm-mini  (local on the mini, --remote from the Air)
+#   [s]hell   plain login shell
+# Enter or any other key opens this machine's own herdr.
+# If herdr fails, the error stays on screen and a shell opens instead of the window closing.
+herdr=/opt/homebrew/bin/herdr
+host=$(scutil --get LocalHostName 2>/dev/null)
+[[ $host == zm-mini ]] && self=m || self=l
+
+read -k1 "c?[l]aptop  [m]ini  [s]hell: "; echo
+case $c in
+  s) exec zsh -l ;;
+  l|m) target=$c ;;
+  *) target=$self ;;
+esac
+
+if [[ $target == $self ]]; then
+  $herdr
+else
+  if [[ $target == m ]]; then $herdr --remote zm-mini; else $herdr --remote zm-air; fi
+fi
+rc=$?
+(( rc == 0 )) && exit 0
+print -P "%F{red}herdr exited with status $rc.%f Press any key for a shell."
+read -k1
+exec zsh -l

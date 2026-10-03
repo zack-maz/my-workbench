@@ -121,7 +121,7 @@ git clone https://github.com/zack-maz/my-workbench.git ~/dotfiles
 cd ~/dotfiles
 
 brew bundle --file=Brewfile          # every tool, including yazi's preview backends
-stow ghostty herdr nvim yazi zsh starship atuin git claude
+stow bin ghostty herdr nvim yazi zsh starship atuin git claude
 
 # Caps Lock -> F18, now and at every login
 cp keymap/Library/LaunchAgents/com.zackmaz.capslock-f18.plist ~/Library/LaunchAgents/
@@ -134,7 +134,7 @@ herdr plugin install lmilojevicc/herdr-splits.nvim --yes
 ~/.claude/hooks/herdr-agent-tab.py install
 ```
 
-Open Ghostty. It launches straight into herdr.
+Open Ghostty. It asks `[l]aptop  [m]ini  [s]hell` (`bin/herdr-pick`): Enter opens this machine's herdr, the other letter attaches to the other Mac's herdr over SSH, and `s` gives a plain shell.
 
 > **Stow will not overwrite an existing regular file** — it skips silently, so
 > the old config keeps winning and the new one looks like it "didn't apply."
@@ -211,7 +211,7 @@ repo, and the whole thing is reversible:
 
 ```sh
 stow -D nvim     # unlink one package
-stow -D ghostty herdr nvim yazi zsh starship atuin git claude   # unlink all
+stow -D bin ghostty herdr nvim yazi zsh starship atuin git claude   # unlink all
 ```
 
 `Brewfile`, `LICENSE`, `README.md` and `docs/` are repo metadata and are never stowed.

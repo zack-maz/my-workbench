@@ -21,10 +21,10 @@ foreground = #c8d3f5
 selection-background = #2d3f76
 
 # --- Auto-launch herdr (agent multiplexer, replaces tmux) ---
-# Every new Ghostty window drops straight into the persistent herdr session.
-# herdr with no args launches-or-attaches, so panes/agents survive window close.
+# Every new Ghostty window runs herdr-pick (bin package): [l]aptop / [m]ini / [s]hell.
+# Enter attaches this Mac's persistent herdr session, so panes/agents survive window close.
 # Caps Lock (remapped to F18 via hidutil login agent) passes through as the herdr prefix.
-command = /opt/homebrew/bin/herdr
+command = /Users/zackmaz/bin/herdr-pick
 
 # --- Alt keys + clipboard (TERM-03) ---
 macos-option-as-alt = true
